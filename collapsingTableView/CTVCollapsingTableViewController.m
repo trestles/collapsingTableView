@@ -8,6 +8,8 @@
 
 #import "CTVCollapsingTableViewController.h"
 #import "CTVMenu.h"
+#import "CTVMenuHeader.h"
+#import "CTVMenuItem.h"
 
 @interface CTVCollapsingTableViewController (){
   NSArray *_menuList;
@@ -31,18 +33,36 @@
 
 #pragma mark - Table view data source
 
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
   return 2;
 }
+*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return 11;
+  return [_menuList count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  
+  id rowItem=_menuList[indexPath.row];
+  if([rowItem isKindOfClass:[CTVMenuHeader class]]){
+    CTVMenuHeader *tmpMenuHeader= (CTVMenuHeader *) rowItem; //_menuList[indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCell" forIndexPath:indexPath];
+    cell.textLabel.text = tmpMenuHeader.name;
+    return cell;
+  }else if([rowItem isKindOfClass:[CTVMenuItem class]]){
+    CTVMenuItem *tmpMenuItem= (CTVMenuItem *) rowItem; //_menuList[indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
+    cell.textLabel.text = tmpMenuItem.name;
+    return cell;
+  }
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
+  return cell;
+  /*
   if (indexPath.row == 0)
   {
     // Header cell
@@ -57,10 +77,13 @@
     cell.textLabel.text = [NSString stringWithFormat:@"Detail %d",indexPath.row];
     return cell;
   }
+  */
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  return 44.0;
+  /*
   if (indexPath.row == 0)
     return 44.0;
   
@@ -72,6 +95,7 @@
   {
     return 0.0;
   }
+  */
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -34,15 +34,23 @@
   
   // lets add an item
   CTVMenuItem *mi1=[[CTVMenuItem alloc] init];
-  mi1.name=@"menu item name";
+  mi1.name=@"sub1 - menu item name #1";
   [mh1.menuItems addObject:mi1];
-  
+
+  CTVMenuItem *mi2=[[CTVMenuItem alloc] init];
+  mi2.name=@"sub1 - menu item name #2";
+  [mh1.menuItems addObject:mi2];
   
   CTVMenuHeader *mh2=[[CTVMenuHeader alloc] init];
   mh2.name=@"menu header 1";
   [menu.menuHeaders addObject:mh2];
   
   
+  // lets add an item
+  CTVMenuItem *mi3=[[CTVMenuItem alloc] init];
+  mi3.name=@"sub2 - menu item name #1";
+  [mh2.menuItems addObject:mi3];
+
   
   return menu;
 }
