@@ -52,12 +52,13 @@
   if([rowItem isKindOfClass:[CTVMenuHeader class]]){
     CTVMenuHeader *tmpMenuHeader= (CTVMenuHeader *) rowItem; //_menuList[indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCell" forIndexPath:indexPath];
-    cell.textLabel.text = tmpMenuHeader.name;
+    cell.textLabel.text = [NSString  stringWithFormat:@"%@ and %@", tmpMenuHeader.name, tmpMenuHeader.ID];
     return cell;
   }else if([rowItem isKindOfClass:[CTVMenuItem class]]){
     CTVMenuItem *tmpMenuItem= (CTVMenuItem *) rowItem; //_menuList[indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
-    cell.textLabel.text = tmpMenuItem.name;
+    //cell.textLabel.text = tmpMenuItem.name;
+    cell.textLabel.text = [NSString  stringWithFormat:@"%@ and %@", tmpMenuItem.name, tmpMenuItem.menuHeaderID];
     return cell;
   }
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
@@ -119,7 +120,7 @@
      CTVMenuHeader *tmpMenuHeader= (CTVMenuHeader *) rowItem; //_menuList[indexPath.row];
   
      [_menuList filteredArrayUsingPredicate:[NSPredicate
-                                        predicateWithFormat:@"menuHeaderID == %@", @"New"]];
+                                        predicateWithFormat:@"menuHeaderID == %@", tmpMenuHeader.ID]];
   }
   /*
   if (indexPath.row == 0)

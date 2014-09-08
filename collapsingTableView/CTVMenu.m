@@ -23,7 +23,7 @@
   
   CTVMenuHeader *mh1=[[CTVMenuHeader alloc] init];
   mh1.name=@"menu header 1";
-  mh1.menuHeaderID=@7;
+  mh1.ID=@7;
   mh1.menuHeaders=[[NSMutableArray alloc] init];
   mh1.menuItems=[[NSMutableArray alloc] init];
   [menu.menuHeaders addObject:mh1];
@@ -31,7 +31,7 @@
   
   CTVMenuHeader *subMH1=[[CTVMenuHeader alloc] init];
   subMH1.name=@"sub menu-header 1";
-  subMH1.menuHeaderID=@11;
+  subMH1.ID=@11;
   subMH1.menuItems=[[NSMutableArray alloc] init];
 
   [mh1.menuHeaders addObject:subMH1];
@@ -51,7 +51,7 @@
   
   CTVMenuHeader *mh2=[[CTVMenuHeader alloc] init];
   mh2.name=@"menu header 1";
-  mh2.menuHeaderID=@9;
+  mh2.ID=@9;
 
   [menu.menuHeaders addObject:mh2];
   mh2.menuItems=[[NSMutableArray alloc] init];
@@ -59,6 +59,7 @@
   // lets add an item
   CTVMenuItem *mi3=[[CTVMenuItem alloc] init];
   mi3.name=@"sub2 - menu item name #1";
+  mi3.menuHeaderID=mh2.ID;
   [mh2.menuItems addObject:mi3];
 
   
