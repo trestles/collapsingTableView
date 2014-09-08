@@ -10,4 +10,7 @@
 
 @interface CTVMenuItem : NSObject
 
+@property (nonatomic, strong) NSString *name;
+
+
 @end

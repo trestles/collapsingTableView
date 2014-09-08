@@ -7,8 +7,12 @@
 //
 
 #import "CTVCollapsingTableViewController.h"
+#import "CTVMenu.h"
 
-@interface CTVCollapsingTableViewController ()
+@interface CTVCollapsingTableViewController (){
+  NSArray *_menuList;
+}
+
 
 @property (nonatomic,strong) NSMutableArray *sectionOpenFlags;
 
@@ -19,6 +23,9 @@
 -(void)viewDidLoad
 {
   [super viewDidLoad];
+  CTVMenu *menu=[CTVMenu getOne];
+  _menuList=[menu processAsList];
+  NSLog(@"here is menuList %@", _menuList);
   self.sectionOpenFlags = [@[@NO,@NO] mutableCopy];
 }
 

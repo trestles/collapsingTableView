@@ -10,4 +10,12 @@
 
 @interface CTVMenu : NSObject
 
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSMutableArray *menuHeaders;
+@property (nonatomic, strong) NSMutableArray *menuList;
+
+-(NSMutableArray *)processAsList;
+
++(CTVMenu *)getOne;
+
 @end

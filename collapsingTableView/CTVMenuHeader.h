@@ -10,4 +10,8 @@
 
 @interface CTVMenuHeader : NSObject
 
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSMutableArray *menuHeaders;
+@property (nonatomic, strong) NSMutableArray *menuItems;
+
 @end
