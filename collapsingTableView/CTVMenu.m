@@ -44,7 +44,7 @@
   CTVMenuHeader *mh2=[[CTVMenuHeader alloc] init];
   mh2.name=@"menu header 1";
   [menu.menuHeaders addObject:mh2];
-  
+  mh2.menuItems=[[NSMutableArray alloc] init];
   
   // lets add an item
   CTVMenuItem *mi3=[[CTVMenuItem alloc] init];
@@ -66,6 +66,7 @@
     }
   }
   for(CTVMenuItem *mi in menuHeader.menuItems){
+    NSLog(@"mi's exist");
     [self.menuList addObject:mi];
   }
 }
@@ -79,6 +80,10 @@
     if([mh.menuHeaders count] > 0){
       NSLog(@"that is greater than 0");
       [self processMenuHeader:mh];
+    }
+    for(CTVMenuItem *mi in mh.menuItems){
+      NSLog(@"mi's exist");
+      [self.menuList addObject:mi];
     }
   }
   
