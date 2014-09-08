@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BCE810319BE1F1400408BAD /* CTVMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE810219BE1F1400408BAD /* CTVMenu.m */; };
+		6BCE810719BE1F3B00408BAD /* CTVMenuHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE810619BE1F3B00408BAD /* CTVMenuHeader.m */; };
+		6BCE810A19BE1F4C00408BAD /* CTVMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE810919BE1F4C00408BAD /* CTVMenuItem.m */; };
 		79B9957919BC55CB0017FCA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B9957819BC55CB0017FCA2 /* Foundation.framework */; };
 		79B9957B19BC55CB0017FCA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B9957A19BC55CB0017FCA2 /* CoreGraphics.framework */; };
 		79B9957D19BC55CB0017FCA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B9957C19BC55CB0017FCA2 /* UIKit.framework */; };
@@ -34,6 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6BCE810119BE1F1400408BAD /* CTVMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTVMenu.h; sourceTree = "<group>"; };
+		6BCE810219BE1F1400408BAD /* CTVMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTVMenu.m; sourceTree = "<group>"; };
+		6BCE810519BE1F3B00408BAD /* CTVMenuHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTVMenuHeader.h; path = collapsingTableView/CTVMenuHeader.h; sourceTree = "<group>"; };
+		6BCE810619BE1F3B00408BAD /* CTVMenuHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTVMenuHeader.m; path = collapsingTableView/CTVMenuHeader.m; sourceTree = "<group>"; };
+		6BCE810819BE1F4C00408BAD /* CTVMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTVMenuItem.h; path = collapsingTableView/CTVMenuItem.h; sourceTree = "<group>"; };
+		6BCE810919BE1F4C00408BAD /* CTVMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTVMenuItem.m; path = collapsingTableView/CTVMenuItem.m; sourceTree = "<group>"; };
 		79B9957519BC55CB0017FCA2 /* collapsingTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = collapsingTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B9957819BC55CB0017FCA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		79B9957A19BC55CB0017FCA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -79,9 +88,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BCE810419BE1F1E00408BAD /* models */ = {
+			isa = PBXGroup;
+			children = (
+				6BCE810119BE1F1400408BAD /* CTVMenu.h */,
+				6BCE810219BE1F1400408BAD /* CTVMenu.m */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
 		79B9956C19BC55CB0017FCA2 = {
 			isa = PBXGroup;
 			children = (
+				6BCE810519BE1F3B00408BAD /* CTVMenuHeader.h */,
+				6BCE810619BE1F3B00408BAD /* CTVMenuHeader.m */,
+				6BCE810819BE1F4C00408BAD /* CTVMenuItem.h */,
+				6BCE810919BE1F4C00408BAD /* CTVMenuItem.m */,
 				79B9957E19BC55CB0017FCA2 /* collapsingTableView */,
 				79B9959D19BC55CB0017FCA2 /* collapsingTableViewTests */,
 				79B9957719BC55CB0017FCA2 /* Frameworks */,
@@ -112,6 +134,7 @@
 		79B9957E19BC55CB0017FCA2 /* collapsingTableView */ = {
 			isa = PBXGroup;
 			children = (
+				6BCE810419BE1F1E00408BAD /* models */,
 				79B9958719BC55CB0017FCA2 /* CTVAppDelegate.h */,
 				79B9958819BC55CB0017FCA2 /* CTVAppDelegate.m */,
 				79B9958A19BC55CB0017FCA2 /* Main.storyboard */,
@@ -251,7 +274,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				79B9958919BC55CB0017FCA2 /* CTVAppDelegate.m in Sources */,
+				6BCE810A19BE1F4C00408BAD /* CTVMenuItem.m in Sources */,
 				79B9958519BC55CB0017FCA2 /* main.m in Sources */,
+				6BCE810319BE1F1400408BAD /* CTVMenu.m in Sources */,
+				6BCE810719BE1F3B00408BAD /* CTVMenuHeader.m in Sources */,
 				79B995AF19BC56BE0017FCA2 /* CTVCollapsingTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +483,7 @@
 				79B995A919BC55CB0017FCA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		79B995AA19BC55CB0017FCA2 /* Build configuration list for PBXNativeTarget "collapsingTableViewTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +492,7 @@
 				79B995AC19BC55CB0017FCA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
