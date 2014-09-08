@@ -10,6 +10,8 @@
 
 @interface CTVMenuItem : NSObject
 
+@property (nonatomic, assign) NSNumber *menuHeaderID;
+@property (nonatomic, assign) NSNumber *menuItemID;
 @property (nonatomic, strong) NSString *name;
 
 

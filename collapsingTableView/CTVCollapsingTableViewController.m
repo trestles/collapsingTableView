@@ -82,16 +82,20 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  //return 44.0;
+  return 44.0;
+  /*
   id rowItem=_menuList[indexPath.row];
   if([rowItem isKindOfClass:[CTVMenuHeader class]]){
     return 44.0f;
   }else if([rowItem isKindOfClass:[CTVMenuItem class]]){
+    
+  
     return 0.0f;
   }else{
     return 44.0f;
   }
-
+  */
+  
   /*
   if (indexPath.row == 0)
     return 44.0;
@@ -110,6 +114,14 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  id rowItem=_menuList[indexPath.row];
+  if([rowItem isKindOfClass:[CTVMenuHeader class]]){
+     CTVMenuHeader *tmpMenuHeader= (CTVMenuHeader *) rowItem; //_menuList[indexPath.row];
+  
+     [_menuList filteredArrayUsingPredicate:[NSPredicate
+                                        predicateWithFormat:@"menuHeaderID == %@", @"New"]];
+  }
+  /*
   if (indexPath.row == 0)
   {
     // Toggle open flag
@@ -118,6 +130,7 @@
     [tableView beginUpdates];
     [tableView endUpdates];
   }
+  */
 }
 
 @end

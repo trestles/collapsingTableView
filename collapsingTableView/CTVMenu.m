@@ -23,26 +23,36 @@
   
   CTVMenuHeader *mh1=[[CTVMenuHeader alloc] init];
   mh1.name=@"menu header 1";
+  mh1.menuHeaderID=@7;
   mh1.menuHeaders=[[NSMutableArray alloc] init];
+  mh1.menuItems=[[NSMutableArray alloc] init];
   [menu.menuHeaders addObject:mh1];
   
   
   CTVMenuHeader *subMH1=[[CTVMenuHeader alloc] init];
   subMH1.name=@"sub menu-header 1";
+  subMH1.menuHeaderID=@11;
+  subMH1.menuItems=[[NSMutableArray alloc] init];
+
   [mh1.menuHeaders addObject:subMH1];
-  mh1.menuItems=[[NSMutableArray alloc] init];
   
   // lets add an item
   CTVMenuItem *mi1=[[CTVMenuItem alloc] init];
   mi1.name=@"sub1 - menu item name #1";
-  [mh1.menuItems addObject:mi1];
+  mi1.menuHeaderID=@11;
+  [subMH1.menuItems addObject:mi1];
 
   CTVMenuItem *mi2=[[CTVMenuItem alloc] init];
   mi2.name=@"sub1 - menu item name #2";
-  [mh1.menuItems addObject:mi2];
+  mi2.menuHeaderID=@11;
+  [subMH1.menuItems addObject:mi2];
+
+  NSLog(@"here is a subMH1.menuItems: %@", subMH1.menuItems);
   
   CTVMenuHeader *mh2=[[CTVMenuHeader alloc] init];
   mh2.name=@"menu header 1";
+  mh2.menuHeaderID=@9;
+
   [menu.menuHeaders addObject:mh2];
   mh2.menuItems=[[NSMutableArray alloc] init];
   
@@ -58,16 +68,20 @@
 
 -(void)processMenuHeader:(CTVMenuHeader *)menuHeader
 {
-  for(CTVMenuHeader *mh in menuHeader.menuHeaders){
-    [self.menuList addObject:mh];
-    if([mh.menuHeaders count] > 0){
+  if([menuHeader.menuHeaders count] > 0){
+    for(CTVMenuHeader *mh in menuHeader.menuHeaders){
+      [self.menuList addObject:mh];
       NSLog(@"that is greater than 0");
       [self processMenuHeader:mh];
     }
   }
-  for(CTVMenuItem *mi in menuHeader.menuItems){
-    NSLog(@"mi's exist");
-    [self.menuList addObject:mi];
+  if([menuHeader.menuItems count] > 0){
+    for(CTVMenuItem *mi in menuHeader.menuItems){
+      NSLog(@"mi's exist in here");
+      [self.menuList addObject:mi];
+    }
+  }else{
+    NSLog(@"couunt == 0");
   }
 }
 
