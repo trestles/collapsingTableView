@@ -110,19 +110,22 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  return 44.0;
-  /*
+  //return 44.0;
+  
   id rowItem=_menuList[indexPath.row];
   if([rowItem isKindOfClass:[CTVMenuHeader class]]){
     return 44.0f;
   }else if([rowItem isKindOfClass:[CTVMenuItem class]]){
-    
-  
+    CTVMenuItem *tmpMI=(CTVMenuItem *)rowItem;
+    if(tmpMI.showFlag==YES){
+      return 44.0f;
+    }else{
     return 0.0f;
+     }
   }else{
     return 44.0f;
   }
-  */
+  
   
   /*
   if (indexPath.row == 0)
@@ -147,11 +150,22 @@
      CTVMenuHeader *tmpMenuHeader= (CTVMenuHeader *) rowItem; //_menuList[indexPath.row];
     
     NSLog(@"menu header id: %@", tmpMenuHeader.ID);
+   
     NSArray *selected=[_menuList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:
-                                                              @"(class == %@) AND (menuHeaderID == %i)",
+                                                              @"(class == %@) AND (menuHeaderID == %@)",
                                                               [CTVMenuItem class],
                                                               tmpMenuHeader.ID]];
+    /*
+    NSArray *selected=[_menuList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:
+                                                              @"(class == %@)",
+                                                              [CTVMenuItem class]]];
+   */
     NSLog(@"here is selected %@", selected);
+    for(CTVMenuItem *mi in selected){
+      mi.showFlag=YES;
+    }
+    [tableView beginUpdates];
+    [tableView endUpdates];
   
 //  NSArray *selected=[_menuList filteredArrayUsingPredicate:[NSPredicate
 //                                        predicateWithFormat:@"menuHeaderID == %@", 11]];

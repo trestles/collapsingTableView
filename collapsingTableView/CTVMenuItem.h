@@ -13,6 +13,7 @@
 @property (nonatomic, assign) NSNumber *menuHeaderID;
 @property (nonatomic, assign) NSNumber *ID;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, assign) BOOL showFlag;
 
 
 @end

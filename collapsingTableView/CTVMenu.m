@@ -40,11 +40,13 @@
   CTVMenuItem *mi1=[[CTVMenuItem alloc] init];
   mi1.name=@"sub1 - menu item name #1";
   mi1.menuHeaderID=@11;
+  mi1.showFlag=NO;
   [subMH1.menuItems addObject:mi1];
 
   CTVMenuItem *mi2=[[CTVMenuItem alloc] init];
   mi2.name=@"sub1 - menu item name #2";
   mi2.menuHeaderID=@11;
+  mi1.showFlag=NO;
   [subMH1.menuItems addObject:mi2];
 
   NSLog(@"here is a subMH1.menuItems: %@", subMH1.menuItems);
@@ -60,6 +62,7 @@
   CTVMenuItem *mi3=[[CTVMenuItem alloc] init];
   mi3.name=@"sub2 - menu item name #1";
   mi3.menuHeaderID=mh2.ID;
+  mi3.showFlag=NO;
   [mh2.menuItems addObject:mi3];
 
   
