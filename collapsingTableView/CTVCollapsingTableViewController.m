@@ -29,6 +29,33 @@
   _menuList=[menu processAsList];
   NSLog(@"here is menuList %@", _menuList);
   self.sectionOpenFlags = [@[@NO,@NO] mutableCopy];
+  
+  // lets test this
+  NSMutableArray *testArray=[[NSMutableArray alloc] init];
+  // lets add an item
+  CTVMenuHeader *mh1=[[CTVMenuHeader alloc] init];
+  mh1.name=@"menu-header 1";
+  [testArray addObject:mh1];
+  
+  CTVMenuItem *mi1=[[CTVMenuItem alloc] init];
+  mi1.name=@"sub1 - menu item name #1";
+  mi1.menuHeaderID=@11;
+  [testArray addObject:mi1];
+  
+  CTVMenuItem *mi2=[[CTVMenuItem alloc] init];
+  mi2.name=@"sub1 - menu item name #2";
+  mi2.menuHeaderID=@12;
+  [testArray addObject:mi2];
+
+  /*
+  NSLog(@"here is array %@", testArray);
+  NSArray *selected=[testArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:
+                                          @"(class == %@) AND (menuHeaderID == %i)",
+                                          [CTVMenuItem class],
+                                          12]];
+  //NSArray *selected=[testArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"menuHeaderID == %i", 12]];
+  NSLog(@"here is selected %@", selected);
+   */
 }
 
 #pragma mark - Table view data source
@@ -118,9 +145,18 @@
   id rowItem=_menuList[indexPath.row];
   if([rowItem isKindOfClass:[CTVMenuHeader class]]){
      CTVMenuHeader *tmpMenuHeader= (CTVMenuHeader *) rowItem; //_menuList[indexPath.row];
+    
+    NSLog(@"menu header id: %@", tmpMenuHeader.ID);
+    NSArray *selected=[_menuList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:
+                                                              @"(class == %@) AND (menuHeaderID == %i)",
+                                                              [CTVMenuItem class],
+                                                              tmpMenuHeader.ID]];
+    NSLog(@"here is selected %@", selected);
   
-     [_menuList filteredArrayUsingPredicate:[NSPredicate
-                                        predicateWithFormat:@"menuHeaderID == %@", tmpMenuHeader.ID]];
+//  NSArray *selected=[_menuList filteredArrayUsingPredicate:[NSPredicate
+//                                        predicateWithFormat:@"menuHeaderID == %@", 11]];
+    
+//    NSLog(@"here is selected array: %@", selected);
   }
   /*
   if (indexPath.row == 0)
