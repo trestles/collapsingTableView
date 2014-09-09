@@ -162,7 +162,7 @@
    */
     NSLog(@"here is selected %@", selected);
     for(CTVMenuItem *mi in selected){
-      mi.showFlag=YES;
+      mi.showFlag=!mi.showFlag;
     }
     [tableView beginUpdates];
     [tableView endUpdates];
